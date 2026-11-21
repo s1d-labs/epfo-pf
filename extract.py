@@ -325,3 +325,72 @@ def parse_sitemap(xml):
     if "<urlset" not in head and "<sitemapindex" not in head:
         return None
     return [normalize(u) for u in re.findall(r"<loc>\s*(?:<!\[CDATA\[)?\s*([^<\]\s]+)", xml)]
+
+
+def _cells(tr):
+    """(cell, colspan) of a table row, direct children only."""
+    out = []
+    for c in tr.find_all(["td", "th"], recursive=False):
+        span = c.get("colspan", "1")
+        out.append((c, int(span) if str(span).isdigit() else 1))
+    return out
+
+
+def table_rows(html, base_url, chrome_css=()):
+    """Rows of every table that has a header row, as [{"cells": {header: text}, "links": [url, ...]}].
+
+    Header names come from <thead> or from a first row of <th>. Rows without any text are skipped, and so are tables in the
+    site's menus. Pure: tests run it on saved pages."""
+    soup = BeautifulSoup(html, "lxml")
+    menu = {id(t) for sel in chrome_css for box in soup.select(sel) for t in box.find_all("table")}
+    out = []
+    for table in soup.find_all("table"):
+        if id(table) in menu or table.find_parent(CHROME_TAGS):
+            continue
+        rows = [tr for tr in table.find_all("tr") if tr.find_parent("table") is table]
+        head = table.find("thead")
+        hrow = head.find("tr") if head else (rows[0] if rows and rows[0].find("th") and not rows[0].find("td") else None)
+        if hrow is None:
+            continue
+        names = []
+        for c, span in _cells(hrow):
+            n = clean(c.get_text(" "), 60) or f"col{len(names) + 1}"
+            names += [n] * span if span > 1 else [n]
+        seen = {}
+        for i, n in enumerate(names):                         # unique names: "Hindi", "Hindi_2"
+            seen[n] = seen.get(n, 0) + 1
+            names[i] = n if seen[n] == 1 else f"{n}_{seen[n]}"
+        for tr in rows:
+            if tr is hrow or tr.find_parent("thead"):
+                continue
+            cells, pos = {}, 0
+            for c, span in _cells(tr):
+                if pos < len(names):
+                    t = clean(c.get_text(" "), 600)
+                    if t:
+                        cells[names[pos]] = t
+                pos += span
+            if not cells:
+                continue
+            links = []
+            for a in tr.find_all(["a", "object", "iframe"]):
+                raw = (a.get("href") or a.get("data") or a.get("src") or "").strip()
+                if raw and not raw.startswith(("#", "javascript:", "mailto:", "tel:")):
+                    u = normalize(urljoin(base_url, raw))
+                    if u not in links:
+                        links.append(u)
+            out.append({"cells": cells, "links": links})
+    return out
+
+
+ROW_ID_HEADER = re.compile(r"console|reference|ref\.? ?no|tender (id|no)|bid no|circular no|order no", re.I)
+
+
+def row_id(section, row, aliases=None):
+    """Stable record id of a table row: the row's own reference number (ESIC 'Console Sl. No.') when it has one, else its first
+    link, else its text. The id ignores the page and an '-archive' suffix of the section, so a row that moves from the current
+    list to the archive keeps its id."""
+    base = re.sub(r"-archive$", "", section)
+    ref = next((v for k, v in row["cells"].items() if ROW_ID_HEADER.search(k) and v and v != "View"), None)
+    key = ref or (canonical(row["links"][0], aliases or {}) if row["links"] else " | ".join(row["cells"].values()))
+    return "row:" + hashlib.sha1(f"{base}|{key}".encode()).hexdigest()

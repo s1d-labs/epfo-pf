@@ -283,9 +283,22 @@ def crawl_pages(hub, f, sec, stats):
                 frontier.append((u, depth + 1, url))
                 if kind is None:                               # a download link without an extension: keep its anchor text
                     docs.setdefault(u, {**link, "page": url, "page_title": title, "maybe": True})
+        n_rows = 0
+        for row in X.table_rows(html, final, sec.src.get("chrome_css", ())):
+            if len(row["cells"]) < 2:
+                continue
+            links = [X.canonical(u, sec.aliases) for u in row["links"]]
+            text = " ".join(row["cells"].values())
+            hub.record(X.row_id(sec.key, row, sec.aliases), {
+                "kind": "row", "org": sec.org, "section": sec.key, "page": url, "cells": row["cells"], "links": links,
+                "docs": [f"doc:{X.url_id(u)}" for u in links if X.looks_like_document(u)], "dates": X.find_dates(text),
+                "fetched_at": now()})
+            n_rows += 1
+        stats["rows"] += n_rows
+        stats["records"] += n_rows
         hub.record(f"page:{pid}", {
             "kind": "page", "org": sec.org, "section": sec.key, "url": url, "final_url": final, "title": title, "depth": depth,
-            "referrer": ref, "n_links": len(links), "n_docs": n_docs, "file": info["key"], "bytes": info["bytes"],
+            "referrer": ref, "n_links": len(links), "n_docs": n_docs, "n_rows": n_rows, "file": info["key"], "bytes": info["bytes"],
             "sha256": info["sha256"], "fetched_at": now()})
         stats["pages"] += 1
         stats["records"] += 1
@@ -344,7 +357,7 @@ def run_section(hub, org, key, pages=None):
     sec = Section(org, key, pages)
     f = Fetcher(hub, sec.src)
     man = Manifest(hub, sec).load()
-    stats = Stats(pages=0, page_fail=0, docs=0, doc_fail=0, skipped=0, records=0, cut="")
+    stats = Stats(pages=0, page_fail=0, rows=0, docs=0, doc_fail=0, skipped=0, records=0, cut="")
     docs = crawl_pages(hub, f, sec, stats)
     links = list(docs.values())
     if sec.max_docs:                                          # a test limit: the section's first N documents

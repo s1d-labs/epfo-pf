@@ -121,3 +121,27 @@ def test_items_weekly_backfill_and_pilot():
     arch = [i for i in items if i["payload"]["section"] == "tenders-archive" and i["key"].startswith(family.ROUND)]
     assert arch[0]["payload"]["pages"] == [1, 10] and arch[-1]["payload"]["pages"][1] == 880
     assert max(i["payload"]["expected"] for i in items) <= 450              # items stay well under the 60-minute assignment
+
+
+def rows_on(org, name, url):
+    f = PAGES / org / name
+    raw = gzip.decompress(f.read_bytes()) if name.endswith(".gz") else f.read_bytes()
+    return X.table_rows(raw.decode("utf-8", "replace"), url, SOURCES[org].get("chrome_css", ()))
+
+
+def test_esic_tender_rows_have_named_columns():
+    rows = rows_on("esic", "tenders-archive.html", "https://esic.gov.in/tenders?tender_type=archive")
+    rows = [r for r in rows if any("tenderfile" in u for u in r["links"])]
+    assert len(rows) == 20
+    keys = set(rows[0]["cells"])
+    assert {"Publish Date", "Last Date"} <= keys and any("Console" in k for k in keys), keys
+    assert all(X.find_dates(r["cells"]["Publish Date"]) for r in rows)
+
+
+def test_cmpfo_and_epfo_tables():
+    rows = rows_on("cmpfo", "office_orders.html", "https://cmpfo.gov.in/office_orders.html")
+    assert len([r for r in rows if r["links"]]) >= 150
+    cbt = rows_on("epfo", "cbt.html", "https://www.epfo.gov.in/cbt/")
+    r238 = next(r for r in cbt if "238th" in " ".join(r["cells"].values()))
+    assert r238["cells"]["Agenda"] == "View" and r238["cells"]["Date"] == "13-10-25"
+    assert [u.rsplit("/", 1)[1] for u in r238["links"]] == ["Agenda_Book_238th_CBT.pdf", "Draft_Minutes_of_238th_CBT.pdf"]

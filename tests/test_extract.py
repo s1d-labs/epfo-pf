@@ -98,3 +98,12 @@ def test_menu_links_are_marked_chrome():
     _, links = X.parse_page(html, "https://x.gov.in/")
     assert {l["url"].rsplit("/", 1)[1]: l["chrome"] for l in links} == {"m.pdf": True, "f.pdf": True, "r.pdf": False}
     assert X.doc_title("📄 (1387.2 KB)", "RFP for portfolio managers") == "RFP for portfolio managers"
+
+
+def test_row_id_prefers_reference_number_and_ignores_archive_suffix():
+    row = {"cells": {"Subject": "GeM bid", "Console Sl. No.": "17646/2026"}, "links": ["https://esic.gov.in/a.pdf"]}
+    assert X.row_id("tenders", row) == X.row_id("tenders-archive", row)
+    other = {"cells": {"Subject": "GeM bid", "Console Sl. No.": "17647/2026"}, "links": ["https://esic.gov.in/a.pdf"]}
+    assert X.row_id("tenders", row) != X.row_id("tenders", other)
+    nolink = {"cells": {"Name": "Office A", "City": "Delhi"}, "links": []}
+    assert X.row_id("directory", nolink) == X.row_id("directory", {"cells": dict(nolink["cells"]), "links": []})
