@@ -1,4 +1,58 @@
-# CLAUDE.md: how this repo works (s1d-labs scrape pool family)
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## This repo: `epfo-pf`
+
+### Current state
+
+- One task, `harvest` (`harvest.py`), crawls public pages and documents of EPFO, ESIC and CMPFO. PFRDA is not crawled:
+  its robots.txt disallows all crawlers except Googlebot (checked 2026-11-15).
+- `sources.py` holds all site configuration: hosts, aliases, proxy, speed, excludes and the sections with their seeds.
+- `extract.py` holds the pure helpers (links, row text, table column, menu detection, categories, dates). `harvest.py` does HTTP and hub calls.
+- Projects: `epfo-pf-epfo` (proxy IN), `epfo-pf-esic` (proxy IN), `epfo-pf-cmpfo` (direct; needs `ca_bundle()`).
+  EPFO and ESIC refuse US/EU IPs (check-host.net, 2026-11-15). CMPFO answers them.
+- Not yet done: OCR of the stored documents, and parsers that turn listing rows into structured tender or circular tables.
+
+### Commands
+
+```bash
+python3 -m venv .venv && . .venv/bin/activate
+pip install -r requirements.txt pytest "scrape-hub-client @ git+https://github.com/s1d-labs/runner@sdk-stable#subdirectory=sdk"
+
+python -m pytest tests -q                                          # all tests (offline, saved pages in tests/pages/<org>/)
+python -m pytest tests/test_pages.py::test_epfo_cbt_agenda_and_minutes   # one test
+python harvest.py --local cmpfo tenders --max-pages 2 --max-docs 2 # one section, no hub; records to stdout; nothing saved
+python harvest.py --local esic tenders-archive --pages 1-1 --max-docs 2   # one page range of a paged section
+scrape-check --items 2 --project epfo-pf-cmpfo --env HARVEST_MAX_PAGES=2 --env HARVEST_MAX_DOCS=2   # same as CI
+myproxy run scrape-check --items 2 --project epfo-pf-esic --env HARVEST_MAX_PAGES=2 --env HARVEST_MAX_DOCS=2
+gh workflow run setup                        # apply family.py to the real hub (GitHub OIDC only; not from the box)
+```
+
+- Always set `HARVEST_MAX_PAGES` / `HARVEST_MAX_DOCS` for checks: without them a section downloads all its documents.
+- Do not use `--save` on the box for big sections: documents belong in the bucket, not on the 80 GB disk.
+- The `check` workflow tests only `epfo-pf-cmpfo`, because GitHub runners cannot reach EPFO or ESIC.
+
+### How the files connect
+
+- `scrape.json` `"family"` is the single source of the family name. `family.py` reads `FAMILY` from it.
+- `family.py` builds one project per organisation in `sources.SOURCES`. Queue items:
+  - weekly: `<WEEK>:<section>` (key from the ISO week; the setup workflow runs every Monday), and for a `"paged"` section
+    `<WEEK>:<section>:0001-000N` for its first `weekly` pages;
+  - backfill: `<ROUND>:<section>:<a>-<b>` page ranges of each paged section (about 300 documents each). Change `ROUND` to redo them.
+  - `PILOT` keeps only the first N items per project (weekly items come first). Set it to `None` after the first runs look right.
+- `setup_family.py` passes `proxy`, `threads`, `delay_ms` and `max_workers` to `set_pool`.
+- Record ids: `doc:<sha1 of canonical URL>`, `page:<sha1>`, `section:<key>[:<a>-<b>]`. Bucket paths (under the project):
+  `docs/<ext>/<id[:2]>/<id>.<ext>`, `pages/<id[:2]>/<id>.html.gz`, `state/<section>.json.gz` (manifest).
+- The manifest lists stored documents, one per section, merged with the bucket copy on each save (every 50 documents).
+  A rerun, a weekly item or a new round downloads only documents that are not in it.
+- Time: `harvest.py` stops work 10 % (max 5 min) before `SCRAPE_MAX_HOURS` ends and claims no new item in the last 25 % (max 15 min).
+  `hub.known()` is not used: the local test hub rejects it.
+- Links in the header, menus and footer (`chrome`) are not documents of a section, except where the section has `"chrome": True`.
+  Site-specific menu areas go in the source's `chrome_css`.
+- robots.txt follows RFC 9309: a 4xx answer allows all, a 5xx answer or no answer disallows the host for the run.
+
+## Family reference (shared by all s1d-labs families)
 
 This repo is one **family** of the s1d-labs scrape pool: scrapers that run on members' GitHub Actions minutes, coordinated by
 scrape-hub (https://scrape.s1d.me). The hub is generic: it hands out queue items, sets speed per site, signs file uploads, and tracks
