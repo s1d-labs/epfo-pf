@@ -12,7 +12,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `extract.py` holds the pure helpers (links, row text, table column, menu detection, categories, dates). `harvest.py` does HTTP and hub calls.
 - Projects: `epfo-pf-epfo` (proxy IN), `epfo-pf-esic` (proxy IN), `epfo-pf-cmpfo` (direct; needs `ca_bundle()`).
   EPFO and ESIC refuse US/EU IPs (check-host.net, 2026-11-15). CMPFO answers them.
-- Not yet done: OCR of the stored documents, and parsers that turn listing rows into structured tender or circular tables.
+- ESIC regional/sub-regional office subsites (`<office>.esic.gov.in`) are added as ESIC sections `office-<code>-<list>`
+  (defaulters, circulars, tenders, recruitment). Only 6 confirmed offices are seeded; the full RO/SRO list is in `DISCOVERY-scopes.md`.
+- Not yet done: OCR of the stored documents; structured parsers over the `row` records; the Internet Archive recovery task
+  (~15 GB of EPFO/ESIC documents that left the live web; plan in `DISCOVERY-scopes.md`).
 
 ### Commands
 

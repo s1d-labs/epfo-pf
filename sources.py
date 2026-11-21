@@ -229,6 +229,31 @@ ESIC = {
 }
 
 
+# ESIC regional and sub-regional office subsites: each office has its own host and its own four lists, with the same table
+# layout as the central site. Confirmed live from the box (2026-11-21). The full office list is behind a JavaScript POST on
+# /regional-offices; seed the confirmed offices and grow this list from ESIC's published RO/SRO directory. See DISCOVERY-scopes.md.
+ESIC_OFFICES = ["roap", "dmd", "dmn", "srotirupati", "srovisakhapatnam", "ijmsoh"]
+ESIC_OFFICE_LISTS = [
+    ("defaulters", "rosro-defaulters", ["other"]),
+    ("circulars", "circulars/rosro_circular_list", ["circulars"]),
+    ("tenders", "tenders/rosro_tender_list", ["tenders"]),
+    ("recruitment", "recruitments/rosro_recruitment_list", ["recruitment"]),
+]
+
+
+def _esic_office_sections(offices):
+    out = []
+    for off in offices:
+        base = f"https://{off}.esic.gov.in/"
+        for key, path, cats in ESIC_OFFICE_LISTS:
+            out.append({"key": f"office-{off}-{key}", "title": f"ESIC office {off}: {key}", "categories": cats,
+                        "seeds": [base + path], "follow": [base + path], "max_pages": 4, "max_depth": 1, "expected": 10})
+    return out
+
+
+ESIC["hosts"] += [f"{o}.esic.gov.in" for o in ESIC_OFFICES]
+ESIC["sections"] += _esic_office_sections(ESIC_OFFICES)
+
 SOURCES = {
     "epfo": EPFO,
     "esic": ESIC,

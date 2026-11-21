@@ -145,3 +145,20 @@ def test_cmpfo_and_epfo_tables():
     r238 = next(r for r in cbt if "238th" in " ".join(r["cells"].values()))
     assert r238["cells"]["Agenda"] == "View" and r238["cells"]["Date"] == "13-10-25"
     assert [u.rsplit("/", 1)[1] for u in r238["links"]] == ["Agenda_Book_238th_CBT.pdf", "Draft_Minutes_of_238th_CBT.pdf"]
+
+
+def test_esic_office_subsite_circulars():
+    rows = rows_on("esic", "office-circulars.html", "https://dmd.esic.gov.in/circulars/rosro_circular_list")
+    docrows = [r for r in rows if any("/attachments/circularfile/" in u for u in r["links"])]
+    assert len(docrows) >= 8
+    assert "Publish Date" in docrows[0]["cells"]
+
+
+def test_esic_office_hosts_and_sections_registered():
+    esic = SOURCES["esic"]
+    assert "dmd.esic.gov.in" in esic["hosts"] and "roap.esic.gov.in" in esic["hosts"]
+    keys = [s["key"] for s in esic["sections"]]
+    assert "office-roap-defaulters" in keys and "office-dmd-circulars" in keys
+    assert len(keys) == len(set(keys))
+    off = next(s for s in esic["sections"] if s["key"] == "office-roap-defaulters")
+    assert X.host_allowed(off["seeds"][0], esic["hosts"])
