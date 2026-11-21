@@ -1,13 +1,13 @@
 {
   "family": "epfo-pf",
-  "about": "pf-schemes , pf-corrigenda , money trail , social security , pf-stats",
+  "about": "Public records of Indian social-security organisations (EPFO, ESIC, CMPFO): acts, schemes, circulars, reports, accounts, statistics, tenders, audit, recruitment, directories. Pages and documents go to the bucket for OCR.",
   "setup": [
     "pip install -r requirements.txt"
   ],
   "tasks": {
-    "crawl": [
+    "harvest": [
       "python",
-      "crawl.py"
+      "harvest.py"
     ]
   }
 }

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+<!-- Core UI Vendor Scripts -->
+<script src="/assets/js/core.bundle.js"></script>
+<script src="/assets/js/vendor-migrate.min.js"></script>
+<script src="assets/js/accessible-menu.js"></script>
+<script src="assets/js/framework.js"></script>
+<script src="assets/js/slider.js"></script>
+<script src="assets/js/font-size.js"></script>
+<script src="assets/js/swithcer.js"></script>
+<script src="theme/js/custom.js"></script>
+<script>
+$(document).ready(function() {
+    var inSubDir = (window.location.pathname.indexOf('/draft/') !== -1 || 
+                    window.location.pathname.indexOf('/inner/') !== -1 || 
+                    window.location.pathname.indexOf('/green/') !== -1 || 
+                    window.location.pathname.indexOf('/red/') !== -1);
+    var pfx = inSubDir ? '../' : '';
+
+    // Load Header if container is empty
+    if ($('#header').length && $('#header').children().length === 0) {
+        $('#header').load(pfx + 'header.html', function(resp, status, xhr) {
+            if (status === "success") {
+                if (typeof initDynamicComponents === 'function') {
+                    initDynamicComponents();
+                } else if ($.fn.accessibleMegaMenu) {
+                    $("nav:first, #nav, .nav-menu").accessibleMegaMenu({
+                        uuidPrefix: "accessible-megamenu",
+                        menuClass: "nav-menu",
+                        topNavItemClass: "nav-item",
+                        panelClass: "sub-nav",
+                        panelGroupClass: "sub-nav-group",
+                        hoverClass: "open",
+                        focusClass: "open",
+                        openClass: "open"
+                    });
+                }
+            }
+        });
+    } else {
+        if (typeof initDynamicComponents === 'function') { initDynamicComponents(); }
+    }
+
+    // Load Footer if container is empty
+    if ($('#footer').length && $('#footer').children().length === 0) {
+        $('#footer').load(pfx + 'footer.html');
+    }
+    if ($('#hfooter').length && $('#hfooter').children().length === 0) {
+        $('#hfooter').load(pfx + 'hfooter.html');
+    }
+});
+</script>
+
+
+
+
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no" />
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <link rel="apple-touch-icon" href="https://cmpfo.gov.in/assets/images/favicon/apple-touch-icon.png">
+      <link rel="icon" href="https://cmpfo.gov.in/assets/images/favicon/favicon.png">
+      <title> COAL MINES PROVIDENT FUND ORGANISATION</title>
+      <!-- Custom styles for this template -->
+      <link href="https://cmpfo.gov.in/inner/assets/css/base.css" rel="stylesheet" media="all">
+      <link href="https://cmpfo.gov.in/assets/css/base-responsive.css" rel="stylesheet" media="all">
+      <link href="https://cmpfo.gov.in/assets/css/grid.css" rel="stylesheet" media="all">
+      <link href="https://cmpfo.gov.in/assets/css/font.css" rel="stylesheet" media="all">
+      <link href="https://cmpfo.gov.in/assets/css/font-awesome.min.css" rel="stylesheet" media="all">
+      <link href="https://cmpfo.gov.in/assets/css/flexslider.css" rel="stylesheet" media="all">
+      <link href="https://cmpfo.gov.in/assets/css/megamenu.css" rel="stylesheet" media="all" />
+      <link href="https://cmpfo.gov.in/assets/css/print.css" rel="stylesheet" media="print" />
+      <link href="https://cmpfo.gov.in/assets/css/modules.css" rel="stylesheet" media="all">
+      <!-- Theme styles for this template -->
+      <link href="https://cmpfo.gov.in/inner/assets/css/megamenu.css" rel="stylesheet" media="all" />
+	  <link href="https://cmpfo.gov.in/inner/theme/css/site.css" rel="stylesheet" media="all">
+      <link href="https://cmpfo.gov.in/inner/theme/css/site-responsive.css" rel="stylesheet" media="all">
+      <link href="https://cmpfo.gov.in/inner/theme/css/ma5gallery.css" rel="stylesheet" type="text/css">
+      <link href="https://cmpfo.gov.in/inner/theme/css/print.css" rel="stylesheet" type="text/css" media="print">
+      <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!--[if lt IE 9]>
+      <script src="inner/assets/js/html5shiv.js"></script>
+      <script src="inner/assets/js/respond.min.js"></script>
+      <![endif]-->
+      <!-- Custom JS for this template -->
+      <noscript>
+         <link href="https://cmpfo.gov.in/inner/theme/css/no-js.css" type="text/css" rel="stylesheet">
+      </noscript>
+	  
+		
+   </head>
+   <body>
+      <div id="fb-root"></div>
+      <header>
+         <div class="region region-header-top">
+            <div id="block-cmf-content-header-region-block" class="block block-cmf-content first last odd">
+               <noscript class="no_scr">"JavaScript is a standard programming language that is included to provide interactive features, Kindly enable Javascript in your browser. For details visit help page"
+               </noscript>
+               <div class="wrapper common-wrapper">
+                  <div class="container common-container four_content top-header">
+                     <div class="common-left clearfix">
+                        <ul>
+                           <li class="gov-india"><span class="responsive_go_hindi" lang="hi"><a target="_blank" rel="noopener noreferrer" href="https://india.gov.in/hi" title="भारत सरकार ( बाहरी वेबसाइट जो एक नई विंडो में खुलती है)">भारत सरकार</a></span></li>
+                           <li class="ministry"><span class="li_eng responsive_go_eng"><a target="_blank" rel="noopener noreferrer" href="https://india.gov.in/" title="Government of india,External Link that opens in a new window" >Government of india</a></span></li>
+                        </ul>
+                     </div>
+                     <div class="common-right clearfix">
+                        <ul id="header-nav">
+						<li><a href="https://cmpfo.gov.in/red/cpio.html"><img src="https://cmpfo.gov.in/theme/images/red.png"></a></li>
+<li><a href="https://cmpfo.gov.in/green/cpio.html"><img src="https://cmpfo.gov.in/theme/images/green.png"></a></li>
+<li><a href="#"><img src="https://cmpfo.gov.in/theme/images/blue.png"></a></li>
+                           <li class="ico-skip cf"><a href="#skipCont" title="">Skip to main content</a>
+                           </li>
+                           <!--<li class="ico-site-search cf">
+                              <a href="javascript:void(0);" id="toggleSearch" title="Site Search">
+                              <img class="top" src="assets/images/ico-site-search.png" alt="Site Search" /></a>
+                              <div class="search-drop both-search">
+                                 <div class="google-find">
+                                    <form method="get" action="https://www.google.com/search" target="_blank" rel="noopener noreferrer">
+                                       <label for="search_key_g" class="notdisplay">Search</label>
+                                       <input type="text" name="q" value="" id="search_key_g"/> 
+                                       <input type="submit" value="Search" class="submit" /> 
+                                       <div class="">
+                                          <input type="radio" name="sitesearch" value="" id="the_web"/> 
+                                          <label for="the_web">The Web</label> 
+                                          <input type="radio" name="sitesearch" value="india.gov.in" checked id="the_domain"/> <label for="the_domain"> INDIA.GOV.IN</label>
+                                       </div>
+                                    </form>
+                                 </div>
+                                 <div class="find">
+                                    <form name="searchForm">
+                                       <label for="search_key" class="notdisplay">Search</label>
+                                       <input type="text" name="search_key" id="search_key" onKeyUp="autoComplete()" autocomplete="off" required />
+                                       <input type="submit" value="Search" class="bttn-search"/>
+                                    </form>
+                                    <div id="auto_suggesion"></div>
+                                 </div>
+                              </div>
+                           </li>-->
+                           <li class="ico-accessibility cf">
+                              <a href="javascript:void(0);" id="toggleAccessibility" title="Accessibility Dropdown">
+                              <img class="top" src="https://cmpfo.gov.in/assets/images/ico-accessibility.png" alt="Accessibility Dropdown" />
+                              </a>
+                              <ul style="visibility: hidden;">
+                                 <li> <a onClick="set_font_size(&#39;increase&#39;)" title="Increase font size" href="javascript:void(0);">A<sup>+</sup>
+                                    </a> 
+                                 </li>
+                                 <li> <a onClick="set_font_size()" title="Reset font size" href="javascript:void(0);">A<sup>&nbsp;</sup></a> </li>
+                                 <li> <a onClick="set_font_size(&#39;decrease&#39;)" title="Decrease font size" href="javascript:void(0);">A<sup>-</sup></a> </li>
+                                 <li> <a href="javascript:void(0);" class="high-contrast dark" title="High Contrast">A</a> </li>
+                                 <li> <a href="javascript:void(0);" class="high-contrast light" title="Normal Contrast" style="display: none;">A</a> </li>
+                              </ul>
+                           </li>
+                           <li class="ico-social cf">
+                              <a href="javascript:void(0);" id="toggleSocial" title="Social Medias">
+                              <img class="top" src="https://cmpfo.gov.in/assets/images/ico-social.png" alt="Social Medias" /></a>
+                              <ul>
+                                 <li><a target="_blank" rel="noopener noreferrer" title="External Link that opens in a new window" href="https://www.facebook.com/CMPFOIndia/"><img alt="Facebook Page" src="https://cmpfo.gov.in/assets/images/ico-facebook.png"></a></li>
+                                 <li><a target="_blank" rel="noopener noreferrer" title="External Link that opens in a new window" href="https://www.twitter.com/CMPFOIndia/"><img alt="Twitter Page" src="https://cmpfo.gov.in/assets/images/ico-twitter.png"></a></li>
+                                 <li><a target="_blank" rel="noopener noreferrer" title="External Link that opens in a new window" href="https://www.youtube.com/"><img alt="youtube Page" src="https://cmpfo.gov.in/assets/images/ico-youtube.png"></a></li>
+                              </ul>
+                           </li>
+                           <li class="ico-sitemap cf"><a href="" title="Sitemap">
+                              <img class="top" src="https://cmpfo.gov.in/assets/images/ico-sitemap.png" alt="Sitemap" /></a>
+                           </li>
+                           <li class="hindi cmf_lan d-hide">
+                              <label class="de-lag"><span style="display: none;">Language</span>
+                                 <select title="Select Language" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                                    <option value="cpio.html" selected>English</option>
+                                    <option value="hcpio.html">हिन्दी</option>
+                                 </select>
+                              </label>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>                     
+            <p id="scroll" style="display: none;"><span></span></p>
+         </div>
+         <!--Top-Header Section end-->
+         <div id="header"></div>
+         <!--/.header-wrapper-->
+         <section class="wrapper megamenu-wraper">
+            <div class="container common-container four_content">
+               <p class="showhide"><em></em><em></em><em></em></p>
+               <nav class="main-menu clearfix" id="main_menu" style="">
+                  <ul class="nav-menu">
+                     <li class="nav-item"> <a href="index.html"><i class="fa fa-home"></i></a> </li>
+            
+                     <li class="nav-item"> <a href="#">About Us</a>
+                        <div class="sub-nav">
+                        <ul class="sub-nav-group">
+                           <li><a href="cmpf_india.html">CMPF, India </a></li>
+                           <li><a href="corporate_profile.html">Corporate Profile</a></li>
+                           <li><a href="operation.html">Operation</a></li>
+                           <li><a href="meet_cmpf_commissioner.html">Meet CMPF Commissioner</a></li>
+			   <li><a href="for_employees.html">For Employees</a></li>
+			   <li><a href="apr.html">APR of Group-A Officer's</a></li>
+                        </ul>            
+                        </div>
+                     </li>
+            
+                     <li class="nav-item"> <a href="#"> Notices </a>
+                        <div class="sub-nav">
+                        <ul class="sub-nav-group">
+                           <li><a href="announcements.html">Announcements</a></li>
+                           <li><a href="recruitment.html">Recruitments</a></li>
+                           <li><a href="office_orders.html">Office Orders</a></li>
+                           <li><a href="events.html">Events</a></li>
+                        </ul>
+                        </div>
+                     </li>
+            
+                     <li class="nav-item"><a href="#"> Media</a>
+                        <div class="sub-nav">
+                        <ul class="sub-nav-group">
+                           <li><a href="new.html">What’s New</a></li>
+                           <li><a href="photo_gallery.html">Photo Gallery</a></li>
+                           <li><a href="video_gallery.html">Video Gallery</a></li>
+                           <li><a href="press_release.html">Press Release</a></li>
+                           <li><a href="e_book.html">E-Book</a></li>
+                        </ul>
+                        </div>
+                     </li>
+                     
+                     <li class="nav-item"><a href="#">Acts & Rules</a>
+                        <div class="sub-nav">
+                        <ul class="sub-nav-group">
+                           <li><a href="cmpf_act1.html">CMPF Act </a></li>
+                           <li><a href="cmps_act1.html">CMPS 1998 </a></li>
+                           <li><a href="cmpfs.html">Coal Mines Provident Fund Scheme 1948 </a></li>
+                           <li><a href="cmdlis.html">Coal Mines Deposit Linked Insurance Schemes 1976 </a></li>
+                        </ul>
+                        </div>
+                     </li>
+                     
+                     <li class="nav-item"><a href="#">Tenders</a>
+                        <div class="sub-nav">
+                        <ul class="sub-nav-group">
+                           <li><a href="recent_tenders.html">Recent Tenders</a></li>
+                           <li><a href="awarded_tenders.html">Awarded Tenders</a></li>
+                        </ul>
+                        </div>
+                     </li>
+            
+                                
+                     <li class="nav-item"><a href="#">e-Services</a>
+                        <div class="sub-nav">
+                        <ul class="sub-nav-group">
+                           <li><a href="member_login.html">Member Login</a></li>
+                           <li><a href="employer_login.html">Employer Login</a></li>
+                        </ul>
+                        </div>
+                     </li>
+            
+                     <li class="nav-item"><a href="#" class="home">RTI</a>
+                        <div class="sub-nav">
+                        <ul class="sub-nav-group">
+                           <li><a href="brief.html">Brief</a></li>
+                           <li><a href="proactive_disclosure.html">Proactive Disclosure</a></li>
+						   <li><a href="#">List of CPIO's</a></li>
+                        </ul>
+                        </div>
+                     </li>
+                     
+            
+                     <li class="nav-item"><a href="grievance.html">Grievance</a></li>
+                          
+                     
+                     
+            
+                     <li class="nav-item"><a href="contact_us.html">Contact Us</a></li>
+
+			
+
+		     <li class="nav-item"><a href="#">Documents</a>
+                        <div class="sub-nav">
+                        <ul class="sub-nav-group">
+						<li><a href="forms.html">Forms</a></li>
+                           <li><a href="monthly_report.html">Monthly Report</a></li>
+                           <li><a href="annual_report.html">Annual Report</a></li>
+						   <li><a href="bot.html">BOT</a></li>
+                           <li><a href="budget.html">Budget</a></li>
+                           <li><a href="citizen_charter.html">Citizen Charter</a></li>
+                        </ul>
+                        </div>
+                     </li>
+
+
+		   <li class="nav-item"><a href="sitemap.html">Important Links</a></li>
+            
+                  </ul>
+               </nav>
+               <nav class="main-menu clearfix" id="overflow_menu">
+                  <ul class="nav-menu clearfix">
+                  </ul>
+               </nav>
+            </div>
+         </section>
+      </header>
+      <!--/.nav-wrapper-->
+      <section class="wrapper banner-wrapper">
+         <div id="flexSlider" class="flexslider">
+            <div class="inner-banner"><img src="https://cmpfo.gov.in/theme/images/banner/inner-banner.jpg" alt="Inner Banner of Consumer Affairs"></div>
+         </div>
+      </section>
+      <div class="wrapper" id="skipCont"></div>
+      <!--/#skipCont-->
+      <section id="fontSize" class="wrapper body-wrapper ">
+         <div class="bg-wrapper inner-wrapper">
+            <div class="breadcam-bg breadcam">
+               <div class="container common-container four_content">
+                  <ul>
+                     <li><a href="index.html">Home </a></li>
+                     <li><a href="#">RTI</a></li>
+					 <li><a href="#">List of CPIO's</a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <section id="page-head" class="wrapper headings-wrapper">
+            <h3 style="display: none;">Heading types</h3>
+            <div class="container common-container four_content">
+               <br>
+               <h2>List of CPIO's</h2>
+			   
+			               
+               <hr />
+            </div>
+         </section>
+         <!--/#page-head-->
+         <section id="paragraph" class="wrapper paragraph-wrapper">
+            <div class="container common-container four_content">
+               
+               <center>
+        
+        <object data="https://cmpfo.gov.in/pdf/Updated cpio list.pdf" 
+                width="880" 
+                height="700"> 
+        </object>
+    </center>
+ 
+
+
+
+            </div>  
+	
+                  
+         </section>   
+
+	 
+               
+            
+         
+         
+       
+   </section>
+      <!--/.body-wrapper-->
+     <div id="footer"></div>
+      <!--/.footer-wrapper-->
+      
+      
+      
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      <script src="https://cmpfo.gov.in/theme/js/ma5gallery.js"></script>
+      
+      <script src="https://cmpfo.gov.in/theme/js/easyResponsiveTabs.js"></script>
+      
+      
+      
+   
+
+
+
+
+
+</body>
+</html>
