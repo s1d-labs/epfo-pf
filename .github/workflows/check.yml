@@ -29,6 +29,8 @@ jobs:
         # CMPFO: the one site that answers GitHub runners; EPFO and ESIC need an Indian IP (proxy="IN"),
         # check them from a team box with: myproxy run scrape-check --items 2 --project epfo-pf-epfo ...
         run: scrape-check --items 2 --project epfo-pf-cmpfo --env HARVEST_MAX_PAGES=2 --env HARVEST_MAX_DOCS=2
+      - name: scrape-check recover (Internet Archive, 1 row per item; no rerun - a stored range makes no requests by design)
+        run: scrape-check --items 2 --project epfo-pf-archive --env RECOVER_MAX_ROWS=1 --no-rerun
       - uses: actions/upload-artifact@v6
         if: ${{ always() }}
         with:

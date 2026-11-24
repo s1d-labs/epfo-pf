@@ -58,8 +58,26 @@ def _project(org, src):
     }
 
 
-PROJECTS = [_project(org, src) for org, src in SOURCES.items() if src.get("enabled", True)]
+def _archive_project():
+    """Documents that left the live web, fetched back from the Internet Archive (task `recover`, data/wayback_lost.csv.gz).
+    web.archive.org is shared with other families (8 workers per target in all): 1 thread, 2 s, at most 2 workers."""
+    from recover import chunks, load_rows
+    items = [{"key": f"{ARCHIVE_ROUND}:{org}-{cat}:{a:05d}-{b:05d}",
+              "payload": {"start": a, "end": b, "org": org, "category": cat, "expected": b - a + 1}}
+             for a, b, org, cat in chunks(load_rows())]
+    return {
+        "name": f"{FAMILY}-archive", "title": "EPFO and ESIC documents gone from the live web (Internet Archive)",
+        "task": "recover", "target": "web.archive.org", "env": {}, "probe": f"{FAMILY}:web.archive.org", "proxy": "",
+        "threads": 1, "delay_ms": 2000, "max_workers": 2, "unit_label": "range", "record_label": "document",
+        "items": items[:PILOT] if PILOT else items,
+    }
+
+
+ARCHIVE_ROUND = "a2026-11"               # the recovery list is fixed; change this only to fetch every row again
+
+PROJECTS = [_project(org, src) for org, src in SOURCES.items() if src.get("enabled", True)] + [_archive_project()]
 
 # health checks the hub runs every minute; a project's work holds while its check fails
 PROBES = [{"name": f"{FAMILY}:{src['target']}", "url": src["probe_url"], "expect": src["probe_expect"]}
           for org, src in SOURCES.items() if src.get("enabled", True)]
+PROBES.append({"name": f"{FAMILY}:web.archive.org", "url": "https://web.archive.org/", "expect": "Wayback Machine"})
