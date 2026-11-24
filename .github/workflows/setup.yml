@@ -1,9 +1,11 @@
 name: setup
 
-# Puts this family's projects in the pool and registers its health checks (setup_family.py). Run it by hand after changing
-# family.py. The hub trusts this repo (s1d-labs/<family>) through the GitHub OIDC token; no secrets are needed.
+# Puts this family's projects in the pool and registers its health checks (setup_family.py). Runs every week (new refresh
+# items) and by hand after changing family.py. The hub trusts this repo (s1d-labs/<family>) through the GitHub OIDC token; no secrets are needed.
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "30 1 * * 1"      # every Monday 01:30 UTC: seeds the week's refresh items (family.WEEK)
 
 permissions:
   id-token: write

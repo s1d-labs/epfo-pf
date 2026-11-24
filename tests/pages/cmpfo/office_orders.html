@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+<!-- Core UI Vendor Scripts -->
+<script src="/assets/js/core.bundle.js"></script>
+<script src="/assets/js/vendor-migrate.min.js"></script>
+<script src="assets/js/accessible-menu.js"></script>
+<script src="assets/js/framework.js"></script>
+<script src="assets/js/slider.js"></script>
+<script src="assets/js/font-size.js"></script>
+<script src="assets/js/swithcer.js"></script>
+<script src="theme/js/custom.js"></script>
+<script>
+$(document).ready(function() {
+    var inSubDir = (window.location.pathname.indexOf('/draft/') !== -1 || 
+                    window.location.pathname.indexOf('/inner/') !== -1 || 
+                    window.location.pathname.indexOf('/green/') !== -1 || 
+                    window.location.pathname.indexOf('/red/') !== -1);
+    var pfx = inSubDir ? '../' : '';
+
+    // Load Header if container is empty
+    if ($('#header').length && $('#header').children().length === 0) {
+        $('#header').load(pfx + 'header.html', function(resp, status, xhr) {
+            if (status === "success") {
+                if (typeof initDynamicComponents === 'function') {
+                    initDynamicComponents();
+                } else if ($.fn.accessibleMegaMenu) {
+                    $("nav:first, #nav, .nav-menu").accessibleMegaMenu({
+                        uuidPrefix: "accessible-megamenu",
+                        menuClass: "nav-menu",
+                        topNavItemClass: "nav-item",
+                        panelClass: "sub-nav",
+                        panelGroupClass: "sub-nav-group",
+                        hoverClass: "open",
+                        focusClass: "open",
+                        openClass: "open"
+                    });
+                }
+            }
+        });
+    } else {
+        if (typeof initDynamicComponents === 'function') { initDynamicComponents(); }
+    }
+
+    // Load Footer if container is empty
+    if ($('#footer').length && $('#footer').children().length === 0) {
+        $('#footer').load(pfx + 'footer.html');
+    }
+    if ($('#hfooter').length && $('#hfooter').children().length === 0) {
+        $('#hfooter').load(pfx + 'hfooter.html');
+    }
+});
+</script>
+
+
+
+
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no" />
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <link rel="apple-touch-icon" href="https://cmpfo.gov.in/assets/images/favicon/apple-touch-icon.png">
+      <link rel="icon" href="https://cmpfo.gov.in/assets/images/favicon/favicon.png">
+      <title> COAL MINES PROVIDENT FUND ORGANISATION</title>
+      <!-- Custom styles for this template -->
+      <link href="https://cmpfo.gov.in/inner/assets/css/base.css" rel="stylesheet" media="all">
+      <link href="https://cmpfo.gov.in/assets/css/base-responsive.css" rel="stylesheet" media="all">
+      <link href="https://cmpfo.gov.in/assets/css/grid.css" rel="stylesheet" media="all">
+      <link href="https://cmpfo.gov.in/assets/css/font.css" rel="stylesheet" media="all">
+      <link href="https://cmpfo.gov.in/assets/css/font-awesome.min.css" rel="stylesheet" media="all">
+      <link href="https://cmpfo.gov.in/assets/css/flexslider.css" rel="stylesheet" media="all">
+      <link href="https://cmpfo.gov.in/assets/css/megamenu.css" rel="stylesheet" media="all" />
+      <link href="https://cmpfo.gov.in/assets/css/print.css" rel="stylesheet" media="print" />
+      <link href="https://cmpfo.gov.in/assets/css/modules.css" rel="stylesheet" media="all">
+      <!-- Theme styles for this template -->
+      <link href="https://cmpfo.gov.in/inner/assets/css/megamenu.css" rel="stylesheet" media="all" />
+	  <link href="https://cmpfo.gov.in/inner/theme/css/site.css" rel="stylesheet" media="all">
+      <link href="https://cmpfo.gov.in/inner/theme/css/site-responsive.css" rel="stylesheet" media="all">
+      <link href="https://cmpfo.gov.in/inner/theme/css/ma5gallery.css" rel="stylesheet" type="text/css">
+      <link href="https://cmpfo.gov.in/inner/theme/css/print.css" rel="stylesheet" type="text/css" media="print">
+      <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!--[if lt IE 9]>
+      <script src="inner/assets/js/html5shiv.js"></script>
+      <script src="inner/assets/js/respond.min.js"></script>
+      <![endif]-->
+      <!-- Custom JS for this template -->
+      <noscript>
+         <link href="https://cmpfo.gov.in/inner/theme/css/no-js.css" type="text/css" rel="stylesheet">
+      </noscript>
+	  
+		
+   </head>
+   <body>
+      <div id="fb-root"></div>
+      <header>
+         <div class="region region-header-top">
+            <div id="block-cmf-content-header-region-block" class="block block-cmf-content first last odd">
+               <noscript class="no_scr">"JavaScript is a standard programming language that is included to provide interactive features, Kindly enable Javascript in your browser. For details visit help page"
+               </noscript>
+               <div class="wrapper common-wrapper">
+                  <div class="container common-container four_content top-header">
+                     <div class="common-left clearfix">
+                        <ul>
+                           <li class="gov-india"><span class="responsive_go_hindi" lang="hi"><a target="_blank" rel="noopener noreferrer" href="https://india.gov.in/hi" title="भारत सरकार ( बाहरी वेबसाइट जो एक नई विंडो में खुलती है)">भारत सरकार</a></span></li>
+                           <li class="ministry"><span class="li_eng responsive_go_eng"><a target="_blank" rel="noopener noreferrer" href="https://india.gov.in/" title="Government of india,External Link that opens in a new window" >Government of india</a></span></li>
+                        </ul>
+                     </div>
+                     <div class="common-right clearfix">
+                        <ul id="header-nav">
+						<li><a href="https://cmpfo.gov.in/red/office_orders.html"><img src="https://cmpfo.gov.in/theme/images/red.png"></a></li>
+<li><a href="https://cmpfo.gov.in/green/office_orders.html"><img src="https://cmpfo.gov.in/theme/images/green.png"></a></li>
+<li><a href="#"><img src="https://cmpfo.gov.in/theme/images/blue.png"></a></li>
+                           <li class="ico-skip cf"><a href="#skipCont" title="">Skip to main content</a>
+                           </li>
+                           <!--<li class="ico-site-search cf">
+                              <a href="javascript:void(0);" id="toggleSearch" title="Site Search">
+                              <img class="top" src="assets/images/ico-site-search.png" alt="Site Search" /></a>
+                              <div class="search-drop both-search">
+                                 <div class="google-find">
+                                    <form method="get" action="https://www.google.com/search" target="_blank" rel="noopener noreferrer">
+                                       <label for="search_key_g" class="notdisplay">Search</label>
+                                       <input type="text" name="q" value="" id="search_key_g"/> 
+                                       <input type="submit" value="Search" class="submit" /> 
+                                       <div class="">
+                                          <input type="radio" name="sitesearch" value="" id="the_web"/> 
+                                          <label for="the_web">The Web</label> 
+                                          <input type="radio" name="sitesearch" value="india.gov.in" checked id="the_domain"/> <label for="the_domain"> INDIA.GOV.IN</label>
+                                       </div>
+                                    </form>
+                                 </div>
+                                 <div class="find">
+                                    <form name="searchForm">
+                                       <label for="search_key" class="notdisplay">Search</label>
+                                       <input type="text" name="search_key" id="search_key" onKeyUp="autoComplete()" autocomplete="off" required />
+                                       <input type="submit" value="Search" class="bttn-search"/>
+                                    </form>
+                                    <div id="auto_suggesion"></div>
+                                 </div>
+                              </div>
+                           </li>-->
+                           <li class="ico-accessibility cf">
+                              <a href="javascript:void(0);" id="toggleAccessibility" title="Accessibility Dropdown">
+                              <img class="top" src="https://cmpfo.gov.in/assets/images/ico-accessibility.png" alt="Accessibility Dropdown" />
+                              </a>
+                              <ul style="visibility: hidden;">
+                                 <li> <a onClick="set_font_size(&#39;increase&#39;)" title="Increase font size" href="javascript:void(0);">A<sup>+</sup>
+                                    </a> 
+                                 </li>
+                                 <li> <a onClick="set_font_size()" title="Reset font size" href="javascript:void(0);">A<sup>&nbsp;</sup></a> </li>
+                                 <li> <a onClick="set_font_size(&#39;decrease&#39;)" title="Decrease font size" href="javascript:void(0);">A<sup>-</sup></a> </li>
+                                 <li> <a href="javascript:void(0);" class="high-contrast dark" title="High Contrast">A</a> </li>
+                                 <li> <a href="javascript:void(0);" class="high-contrast light" title="Normal Contrast" style="display: none;">A</a> </li>
+                              </ul>
+                           </li>
+                           <li class="ico-social cf">
+                              <a href="javascript:void(0);" id="toggleSocial" title="Social Medias">
+                              <img class="top" src="https://cmpfo.gov.in/assets/images/ico-social.png" alt="Social Medias" /></a>
+                              <ul>
+                                 <li><a target="_blank" rel="noopener noreferrer" title="External Link that opens in a new window" href="https://www.facebook.com/CMPFOIndia/"><img alt="Facebook Page" src="https://cmpfo.gov.in/assets/images/ico-facebook.png"></a></li>
+                                 <li><a target="_blank" rel="noopener noreferrer" title="External Link that opens in a new window" href="https://www.twitter.com/CMPFOIndia/"><img alt="Twitter Page" src="https://cmpfo.gov.in/assets/images/ico-twitter.png"></a></li>
+                                 <li><a target="_blank" rel="noopener noreferrer" title="External Link that opens in a new window" href="https://www.youtube.com/"><img alt="youtube Page" src="https://cmpfo.gov.in/assets/images/ico-youtube.png"></a></li>
+                              </ul>
+                           </li>
+                           <li class="ico-sitemap cf"><a href="" title="Sitemap">
+                              <img class="top" src="https://cmpfo.gov.in/assets/images/ico-sitemap.png" alt="Sitemap" /></a>
+                           </li>
+                           <li class="hindi cmf_lan d-hide">
+                              <label class="de-lag"><span style="display: none;">Language</span>
+                                 <select title="Select Language" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                                    <option value="office_orders.html" selected>English</option>
+                                    <option value="hoffice_orders.html">हिन्दी</option>
+                                 </select>
+                              </label>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>                     
+            <p id="scroll" style="display: none;"><span></span></p>
+         </div>
+         <!--Top-Header Section end-->
+         <div id="header"></div>
+         <!--/.header-wrapper-->
+         <section class="wrapper megamenu-wraper">
+            <div class="container common-container four_content">
+               <p class="showhide"><em></em><em></em><em></em></p>
+               <nav class="main-menu clearfix" id="main_menu" style="">
+                  <ul class="nav-menu">
+                     <li class="nav-item"> <a href="index.html"><i class="fa fa-home"></i></a> </li>
+            
+                     <li class="nav-item"> <a href="#">About Us</a>
+                        <div class="sub-nav">
+                        <ul class="sub-nav-group">
+                           <li><a href="cmpf_india.html">CMPF, India </a></li>
+                           <li><a href="corporate_profile.html">Corporate Profile</a></li>
+                           <li><a href="operation.html">Operation</a></li>
+                           <li><a href="meet_cmpf_commissioner.html">Meet CMPF Commissioner</a></li>
+							<li><a href="for_employees.html">For Employees</a></li>
+							<li><a href="apr.html">APR of Group-A Officer's</a></li>
+                        </ul>            
+                        </div>
+                     </li>
+            
+                     <li class="nav-item"> <a href="#" class="home"> Notices </a>
+                        <div class="sub-nav">
+                        <ul class="sub-nav-group">
+                           <li><a href="announcements.html">Announcements</a></li>
+                           <li><a href="recruitment.html">Recruitments</a></li>
+                           <li><a href="#">Office Orders</a></li>
+                           <li><a href="events.html">Events</a></li>
+                        </ul>
+                        </div>
+                     </li>
+            
+                     <li class="nav-item"><a href="#"> Media</a>
+                        <div class="sub-nav">
+                        <ul class="sub-nav-group">
+                           <li><a href="new.html">What’s New</a></li>
+                           <li><a href="photo_gallery.html">Photo Gallery</a></li>
+                           <li><a href="video_gallery.html">Video Gallery</a></li>
+                           <li><a href="press_release.html">Press Release</a></li>
+                           <li><a href="e_book.html">E-Book</a></li>
+                        </ul>
+                        </div>
+                     </li>
+                     
+                     <li class="nav-item"><a href="#">Acts & Rules</a>
+                        <div class="sub-nav">
+                        <ul class="sub-nav-group">
+                           <li><a href="cmpf_act1.html">CMPF Act </a></li>
+                           <li><a href="cmps_act1.html">CMPS 1998 </a></li>
+                           <li><a href="cmpfs.html">Coal Mines Provident Fund Scheme 1948 </a></li>
+                           <li><a href="cmdlis.html">Coal Mines Deposit Linked Insurance Schemes 1976 </a></li>
+                        </ul>
+                        </div>
+                     </li>
+                     
+                     <li class="nav-item"><a href="#">Tenders</a>
+                        <div class="sub-nav">
+                        <ul class="sub-nav-group">
+                           <li><a href="recent_tenders.html">Recent Tenders</a></li>
+                           <li><a href="awarded_tenders.html">Awarded Tenders</a></li>
+                        </ul>
+                        </div>
+                     </li>
+            
+                                
+                     <li class="nav-item"><a href="#">e-Services</a>
+                        <div class="sub-nav">
+                        <ul class="sub-nav-group">
+                           <li><a href="member_login.html">Member Login</a></li>
+                           <li><a href="employer_login.html">Employer Login</a></li>
+                        </ul>
+                        </div>
+                     </li>
+            
+                     <li class="nav-item"><a href="#">RTI</a>
+                        <div class="sub-nav">
+                        <ul class="sub-nav-group">
+                           <li><a href="brief.html">Brief</a></li>
+                           <li><a href="proactive_disclosure.html">Proactive Disclosure</a></li>
+						   <li><a href="cpio.html">List of CPIO's</a></li>
+                        </ul>
+                        </div>
+                     </li>
+                     
+            
+                     <li class="nav-item"><a href="grievance.html">Grievance</a></li>
+                          
+                     
+                     
+            
+                     <li class="nav-item"><a href="contact_us.html">Contact Us</a></li>
+
+			
+
+		     <li class="nav-item"><a href="#">Documents</a>
+                        <div class="sub-nav">
+                        <ul class="sub-nav-group">
+						<li><a href="forms.html">Forms</a></li>
+                           <li><a href="monthly_report.html">Monthly Report</a></li>
+                           <li><a href="annual_report.html">Annual Report</a></li>
+						   <li><a href="bot.html">BOT</a></li>
+                           <li><a href="budget.html">Budget</a></li>
+                           <li><a href="citizen_charter.html">Citizen Charter</a></li>
+                        </ul>
+                        </div>
+                     </li>
+
+
+		   <li class="nav-item"><a href="sitemap.html">Important Links</a></li>
+            
+                  </ul>
+               </nav>
+               <nav class="main-menu clearfix" id="overflow_menu">
+                  <ul class="nav-menu clearfix">
+                  </ul>
+               </nav>
+            </div>
+         </section>
+      </header>
+      <!--/.nav-wrapper-->
+      <section class="wrapper banner-wrapper">
+         <div id="flexSlider" class="flexslider">
+            <div class="inner-banner"><img src="https://cmpfo.gov.in/theme/images/banner/inner-banner.jpg" alt="Inner Banner of Consumer Affairs"></div>
+         </div>
+      </section>
+      <div class="wrapper" id="skipCont"></div>
+      <!--/#skipCont-->
+      <section id="fontSize" class="wrapper body-wrapper ">
+         <div class="bg-wrapper inner-wrapper">
+            <div class="breadcam-bg breadcam">
+               <div class="container common-container four_content">
+                  <ul>
+                     <li><a href="index.html">Home </a></li>
+                     <li><a href="#">Notices</a></li>
+					 <li><a href="#">Office Orders</a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <section id="page-head" class="wrapper headings-wrapper">
+            <h3 style="display: none;">Heading types</h3>
+            <div class="container common-container four_content">
+               <br>
+               <h2>Office Orders</h2>
+               
+               <hr />
+            </div>
+         </section>
+         <!--/#page-head-->
+         <section id="paragraph" class="wrapper paragraph-wrapper">
+            <div class="container common-container four_content">
+               <table class="table">
+	<thead>
+	     <tr>
+		<th>Date</th>
+ 		<th>Description</th>
+		<th>Download</th>
+ 		</tr>
+	</thead>
+	
+		
+
+		<tr>
+		<td> 10-11-2026  </td>
+		<td> OFFICE ORDER NO. 107 OF 2026 <br><p style="color: blue;"><strong>FINAL SENIORITY LIST 2026</strong></p> </td>
+		<td><a href="https://cmpfo.gov.in/office_order/Final_Seniority_Lists_2026.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">5.76 MB</font></br></td>
+		</tr>
+		
+				
+		<tr>
+		<td> 12-08-2026  </td>
+		<td> OPEN CALL FOR NOMINATIONS / APPLICATIONS FOR APPOINTMENT OF EMPLOYEE REPRESENTATIVE (NON-TRADE UNION CATEGORY) ON THE BOARD OF TRUSTEES (BoT), CMPFO UNDER SECTION 3A (1) (f) OF CMPF & MP ACT, 1948<br><p style="color: blue;"><strong></strong></p> </td>
+		<td><a href="https://cmpfo.gov.in/office_order/356-E.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">English</font></br> <br></br>
+		<a href="https://cmpfo.gov.in/office_order/356-H.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">Hindi</font></br></td>
+		</tr>
+		
+
+		<tr>
+		<td> 24-07-2026  </td>
+		<td> Procedural Order No. 02 of 2026 <br><p style="color: blue;"><strong>"मिशन विश्वास" के अंतर्गत सेवानिवृत्त होने वाले कर्मचारियों के हित में भविष्य निधि/ पेंशन दावों के समयबद्ध प्रेषण के संबंध में।</strong></p> </td>
+		<td><a href="https://cmpfo.gov.in/office_order/Procedural-26.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">774 KB</font></br></td>
+		</tr>
+
+		
+
+		<tr>
+		<td> 24-07-2026  </td>
+		<td> Office Memorandum-344 of 2026 <br><p style="color: blue;"><strong>Coal Mines Provident Fund Organisation Staff Transfer Policy, 2026 (CMPFO-STP 2026).</strong></p> </td>
+		<td><a href="https://cmpfo.gov.in/office_order/Transfer Policy circular.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">856 KB</font></br></td>
+		</tr>
+
+
+
+
+		<tr>
+		<td> 11-06-2026  </td>
+		<td> Office Order No. 63 of 2026 <br><p style="color: blue;"><strong>Extended Period of Deputation - Shri Bharat Kumar AY, Regional Commissioner-II</strong></p> </td>
+		<td><a href="https://cmpfo.gov.in/office_order/63-26.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">426 KB</font></br></td>
+		</tr>
+
+
+		<tr>
+		<td> 11-06-2026  </td>
+		<td> Office Order No. 62 of 2026 <br><p style="color: blue;"><strong>Transfer Order - Shri Bharat Kumar AY, Regional Commissioner-II</strong></p> </td>
+		<td><a href="https://cmpfo.gov.in/office_order/62-26.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">411 KB</font></br></td>
+		</tr>
+
+
+
+		
+		<tr>
+		<td> 26-05-2026  </td>
+		<td> Office Order No. 60 of 2026 <br><p style="color: blue;"><strong>Additional charge of Regional Office, Deoghar - Shri Rupak Chattopadhyay, Assistant Commissioner</strong></p> </td>
+		<td><a href="https://cmpfo.gov.in/office_order/60-26.05.26.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">378 KB</font></br></td>
+		</tr>
+		
+		
+		
+		<tr>
+		<td> 14-05-2026  </td>
+		<td> Office Order No. 57 of 2026 <br><p style="color: blue;"><strong>Repatriated to the parent department - Shri Shankara Nand Prasad, Assistant Commissioner (on deputation)</strong></p> </td>
+		<td><a href="https://cmpfo.gov.in/office_order/SNP.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">478 KB</font></br></td>
+		</tr>
+		
+		
+		
+		<tr>
+		<td> 14-05-2026  </td>
+		<td> Office Order No. 55 of 2026 <br><p style="color: blue;"><strong>Repatriated to the parent department - Shri Santosh Kumar, Assistant Commissioner (on deputation) <br>Shri Rahul Kumar, Assistant Commissioner transferred to the Regional Office, CMPFO, Kolkata <br> Shri Arun Kumar Pathak, Finance Officer entrusted with the additional charge
+ of the F&A Section</strong></p> </td>
+		<td><a href="https://cmpfo.gov.in/office_order/SAN.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">478 KB</font></br></td>
+		</tr>
+
+
+
+		<tr>
+		<td> 11-05-2026  </td>
+		<td> Office Order No. 53 of 2026 <br><p style="color: blue;"><strong>Repatriated to the parent department - Shri Apurba Kumar Pathak, Assistant Commissioner (on deputation)</strong></p> </td>
+		<td><a href="https://cmpfo.gov.in/office_order/53-11.05.26.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">478 KB</font></br></td>
+		</tr>
+
+
+		<tr>
+		<td> 06-05-2026  </td>
+		<td> Circular No. 52 of 2026 <br><p style="color: blue;"><strong>Office Timing</strong></p> </td>
+		<td><a href="https://cmpfo.gov.in/office_order/CIRCULAR.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">416 KB</font></br></td>
+		</tr>
+		
+
+		<tr>
+		<td> 29-04-2026  </td>
+		<td> Office Order No. 49 of 2026 <br><p style="color: blue;"><strong>Transfer Order - Headquarters</strong></p> </td>
+		<td><a href="https://cmpfo.gov.in/office_order/OO-49-29.04.2026.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">541 KB</font></br></td>
+		</tr>
+
+
+
+
+		<tr>
+		<td> 06-03-2026  </td>
+		<td> Office Order No. 28 of 2026 <br><p style="color: blue;"><strong>Consequent upon retirement on superannuation - Shri Hari Pachauri, Regional Commissioner-l (Estt.No-1919)</strong></p> </td>
+		<td><a href="https://cmpfo.gov.in/office_order/28-06.03.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">361 KB</font></br></td>
+		</tr>
+
+		<tr>
+		<td> 04-01-2026  </td>
+		<td> Office Order No. 15 of 2026 <br> <p style="color: blue;"><strong>Delegation of power - Shri Vivek Singh Paikra, Regional Commissioner-II</strong></p> </td>
+		<td><a href="https://cmpfo.gov.in/office_order/15-04.01.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">443 KB</font></br></td>
+		</tr>
+
+
+		<tr>
+		<td> 28-01-2026  </td>
+		<td> Office Order No. 11 of 2026 <br> <p style="color: blue;"><strong>Consequent upon joining on transfer - Shri Dhirendra Prasad Shukla, Sr. SSA (Estt. No. 2410)</strong></p> </td>
+		<td><a href="https://cmpfo.gov.in/office_order/11-28.01.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">340 KB</font></br></td>
+		</tr>
+
+		<tr>
+		<td> 19-01-2026  </td>
+		<td> Office Order No. 06 of 2026 <br> <p style="color: blue;"><strong>Repatriated to the parent department - Shri Vinod Kumar (on deputation)</strong></p> </td>
+		<td><a href="https://cmpfo.gov.in/office_order/06-19.01.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">450 KB</font></br></td>
+		</tr>
+
+		<tr>
+		<td> 19-01-2026 </td>
+		<td> Office Order No. 05 of 2026 <br> <p style="color: blue;"><strong>Delegation of power - Shri Naveen Nishchhal, Assistant Commissioner</strong></p> </td>
+		<td><a href="https://cmpfo.gov.in/office_order/05-1901.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">443 KB</font></br></td>
+		</tr>
+
+
+		<tr>
+		<td> 07-01-2026  </td>
+		<td> Office Order No. 03 of 2026 <br> <p style="color: blue;"><strong> Relieving Order - Shri S.K. Sinha, Additional Commissioner (Estt.No-1884) </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/03-070126.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">357 KB</font></br></td>
+		</tr>
+
+		<tr>
+		<td> 23-12-2025  </td>
+		<td> Office Order No. 250 of 2025<br> <p style="color: blue;"><strong> Consequent upon joining on transfer - Shri Bishnu Prasad Gupta, Section Officer (Estt. No. 2365) </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/250-23.12.25.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">376 KB</font></br></td>
+		</tr>
+
+
+		<tr>
+		<td> 12-12-2025  </td>
+		<td> Office Order No. 244 of 2025<br> <p style="color: blue;"><strong> Transfer Order - <br> 1. Shri Santosh Kumar, Assistant Commissioner <br> 2. Shri Arun Kumar Pathak, Finance Officer </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/244-12.12.25.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">396 KB</font></br></td>
+		</tr>
+
+		<tr>
+		<td> 11-12-2025  </td>
+		<td> Office Order No. 243 of 2025<br> <p style="color: blue;"><strong> Promotion from Social Security Assistant to Senior Social Security Assistant </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/243-11.12.25.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">813 KB</font></br></td>
+		</tr>
+
+		<tr>
+		<td> 26-11-2025  </td>
+		<td> Office Order No. 235 of 2025<br> <p style="color: blue;"><strong> Promotion from Senior Social Security Assistant to Section Officer </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/235-26.11.25.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">868 KB</font></br></td>
+		</tr>
+
+
+		<tr>
+		<td> 26-11-2025  </td>
+		<td> Office Order No. 233 of 2025<br> <p style="color: blue;"><strong> Promotion from Stenographer Grade - II to Stenographer Grade - I </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/233-26.11.25.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">545 KB</font></br></td>
+		</tr>
+
+		<tr>
+		<td> 26-11-2025  </td>
+		<td> Office Order No. 232 of 2025<br> <p style="color: blue;"><strong> Promotion from Senior Social Security Assistant to Section Officer </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/232-26.11.25.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">745 KB</font></br></td>
+		</tr>
+
+
+		<tr>
+		<td> 26-11-2025  </td>
+		<td> Office Order No. 231 of 2025<br> <p style="color: blue;"><strong> Promotion from Section Officer to Enforcement Officer/Accounts Officer</strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/231-26.11.25.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">651 KB</font></br></td>
+		</tr>
+
+
+		<tr>
+		<td> 26-11-2025  </td>
+		<td> Office Order No. 230 of 2025<br> <p style="color: blue;"><strong> Departmental Records Officer (DRO) - Shri Nafis Alam, Assistant Director (Official Language) </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/230-26.11.25.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">511 KB</font></br></td>
+		</tr>
+
+		<tr>
+		<td> 21-11-2025  </td>
+		<td> Office Order No. 228 of 2025<br> <p style="color: blue;"><strong> Delegation of power - Smt. Beena S. Nair, Assistant Commissioner </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/228-21.11.25.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">494 KB</font></br></td>
+		</tr>
+
+		<tr>
+		<td> 22-10-2025  </td>
+		<td> Office Order No. 222 of 2025<br> <p style="color: blue;"><strong> Relieving Order - Shri Anuj Michael Kullu, Social Security Assistant (Estt. No. 2813) </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/222-22.10.25.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">5,716 KB</font></br></td>
+		</tr>
+
+		<tr>
+		<td> 18-10-2025  </td>
+		<td> Office Order No. 220A of 2025<br> <p style="color: blue;"><strong> Regional Heads of respective Regional Office of CMPFO are nominated as RECORDS OFFICER </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/220A-18.10.25.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">364 KB</font></br></td>
+		</tr>
+
+
+
+		<tr>
+		<td> 15-10-2025  </td>
+		<td> Office Order No. 219 of 2025<br> <p style="color: blue;"><strong> Final Seniority List of Officials of CMPFO </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/21925.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">911 KB</font></br></td>
+		</tr>
+
+
+		<tr>
+		<td> 10-10-2025  </td>
+		<td> Office Order No. 217 of 2025<br> <p style="color: blue;"><strong> Financial upgradation under MACP Scheme - Officials in the cadre of Multi Tasking Staff (MTS) </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/217-1010.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">944 KB</font></br></td>
+		</tr>
+
+
+		<tr>
+		<td> 10-10-2025  </td>
+		<td> Office Order No. 216 of 2025<br> <p style="color: blue;"><strong> 3rd Financial upgradation under MACP Scheme - Official in the cadre of Multi Tasking Staff (MTS) </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/216-1010.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">817 KB</font></br></td>
+		</tr>
+
+
+
+		<tr>
+		<td> 10-10-2025  </td>
+		<td> Office Order No. 215 of 2025<br> <p style="color: blue;"><strong> 3rd Financial upgradation under MACP Scheme - Official in the cadre of Staff Car Driver (Grade-l) </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/215-1010.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">800 KB</font></br></td>
+		</tr>
+
+
+
+		<tr>
+		<td> 10-10-2025  </td>
+		<td> Office Order No. 214 of 2025<br> <p style="color: blue;"><strong> 2nd Financial upgradation under MACP Scheme - Official in the cadre of Stenographer (Grade-I) </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/214-1010.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">853 KB</font></br></td>
+		</tr>
+
+
+
+		<tr>
+		<td> 10-10-2025  </td>
+		<td> Office Order No. 213 of 2025<br> <p style="color: blue;"><strong> 2nd Financial upgradation under MACP Scheme - Official in the cadre of SHT </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/213-1010.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">844 KB</font></br></td>
+		</tr>
+
+
+
+
+		<tr>
+		<td> 10-10-2025  </td>
+		<td> Office Order No. 212 of 2025<br> <p style="color: blue;"><strong> Nomination to act as Liaison Officer for OBC, EWS, and Ex-Servicemen employees - Shri Birendra Kumar, Regional Comisssioner-I (Deputation) </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/212-1010.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">345 KB</font></br></td>
+		</tr>
+
+
+
+		<tr>
+		<td> 09-10-2025  </td>
+		<td> Office Order No. 211 of 2025<br> <p style="color: blue;"><strong> Allotment of Establishment Number to the employees of CMPFO </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/211-0910.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">1283 KB</font></br></td>
+		</tr>
+
+
+		<tr>
+		<td> 30-12-2024  </td>
+		<td> Office Order No. 221 of 2024<br> <p style="color: blue;"><strong> Promotion from Senior Social Security Assistant to Section Officer </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/221_30.12.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">2061 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 30-12-2024  </td>
+		<td> Office Order No. 220 of 2024<br> <p style="color: blue;"><strong> Promotion from Enforcement Officer/Accounts Officer to Assistant Commissioner </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/220_30.12.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">1033 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 28-12-2024  </td>
+		<td> Office Order No. 219 of 2024<br> <p style="color: blue;"><strong> Draft Seniority List in the cadre of Enforcement Officer/Accounts Officer </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/219_28.12.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">2516 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 20-12-2024  </td>
+		<td> Office Memorandum No. 1406<br> <p style="color: blue;"><strong> Rank-Wise Select List and extended panel of candidates for the post of Junior Hindi Translator </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/1406_20.12.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">1518 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 12-12-2024  </td>
+		<td> Office Order No. 216 of 2024<br> <p style="color: blue;"><strong> Transfer Order - Smt. Neha Kumari, SSA </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/216_12.12.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">388 KB</font></br></td>
+		</tr>
+	
+	
+		<tr>
+		<td> 11-12-2024  </td>
+		<td> Office Order No. 215 of 2024<br> <p style="color: blue;"><strong> Transfer Order - Shri Ajay Kumar Chandra, SSA </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/215_11.12.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">438 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 11-12-2024  </td>
+		<td> Office Memorandum No. 1353<br> <p style="color: blue;"><strong> Draft Seniority List in the cadre of Enforcement/Accounts Officer </strong></p></td>
+		<td><a href="https://cmpfo.gov.in/office_order/OM_1353.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">1443 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 05-12-2024  </td>
+		<td> Office Memorandum No. 1341</td>
+		<td><a href="https://cmpfo.gov.in/office_order/1341_05.12.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">3136 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 04-12-2024  </td>
+		<td> Office Order No. 214 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/214_04.12.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">776 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 03-12-2024  </td>
+		<td> Office Memorandum No. 1237</td>
+		<td><a href="https://cmpfo.gov.in/office_order/1237_03.12.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">479 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 02-12-2024  </td>
+		<td> Office Order No. 212 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/212_02.12.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">302 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 29-11-2024  </td>
+		<td> Office Order No. 211 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/211_29.11.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">1760 KB</font></br></td>
+		</tr>
+	
+	
+		<tr>
+		<td> 15-11-2024  </td>
+		<td> Office Memorandum No. 1176</td>
+		<td><a href="https://cmpfo.gov.in/office_order/1176_15.11.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">459 KB</font></br></td>
+		</tr>
+		
+		
+		<tr>
+		<td> 04-11-2024  </td>
+		<td> Office Memorandum No. 1151</td>
+		<td><a href="https://cmpfo.gov.in/office_order/1151_04.11.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">601 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 04-11-2024  </td>
+		<td> Office Order No. 207 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/207_04.11.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">202 KB</font></br></td>
+		</tr>
+		
+		
+		<tr>
+		<td> 01-11-2024  </td>
+		<td> Office Order No. 206 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/206_01.11.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">278 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 30-10-2024  </td>
+		<td> Office Order No. 205 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/205_30.10.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">440 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 30-10-2024  </td>
+		<td> Office Order No. 204 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/204_30.10.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">461 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 30-10-2024  </td>
+		<td> Office Order No. 203 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/203_30.10.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">476 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 28-10-2024  </td>
+		<td> Office Order No. 200 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/200_28.10.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">942 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 28-10-2024  </td>
+		<td> Office Order No. 199 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/199_28.10.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">913 KB</font></br></td>
+		</tr>
+	
+	<tr>
+		<td> 25-10-2024  </td>
+		<td> Office Memorandum No. 1117</td>
+		<td><a href="https://cmpfo.gov.in/office_order/OfficeMemo_1117.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">13,029 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 25-10-2024  </td>
+		<td> Office Memorandum No. 1116</td>
+		<td><a href="https://cmpfo.gov.in/office_order/OfficeMemo_1116.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">9264 KB</font></br></td>
+		</tr>
+	
+	
+	<tr>
+		<td> 15-10-2024  </td>
+		<td> Office Order No. 197 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/197_15.10.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">330 KB</font></br></td>
+		</tr>
+	
+	
+	
+	<tr>
+		<td> 10-10-2024  </td>
+		<td> Office Order No. 196 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/196_10.10.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">775 KB</font></br></td>
+		</tr>
+	
+	
+	
+		<tr>
+		<td> 10-10-2024  </td>
+		<td> Office Order No. 195 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/195_10.10.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">344 KB</font></br></td>
+		</tr>
+		
+		
+		<tr>
+		<td> 08-10-2024  </td>
+		<td> Office Order No. 193 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/193_08.10.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">306 KB</font></br></td>
+		</tr>
+		
+		
+	
+		<tr>
+		<td> 27-09-2024  </td>
+		<td> Office Order No. 177 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/177_27.09.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">1454 KB</font></br></td>
+		</tr>
+		
+		
+		<tr>
+		<td> 27-09-2024  </td>
+		<td> Office Order No. 176 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/176_27.09.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">488 KB</font></br></td>
+		</tr>
+		
+		
+		<tr>
+		<td> 27-09-2024  </td>
+		<td> Office Order No. 174 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/174_27.09.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">618 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 26-09-2024  </td>
+		<td> Office Order No. 173 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/173_26.09.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">528 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 25-09-2024  </td>
+		<td> Office Order No. 172 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/172_25.09.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">532 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 25-09-2024  </td>
+		<td> Office Order No. 169 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/169_25.09.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">590 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 12-09-2024  </td>
+		<td> Office Order No. 167 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/167_12.09.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">704 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 06-09-2024  </td>
+		<td> Office Order No. 166 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/166_06.09.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">559 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 05-09-2024  </td>
+		<td> Office Order No. 165 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/165_05.09.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">559 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 04-09-2024  </td>
+		<td> Office Order No. 163 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/163_04.09.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">492 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 04-09-2024  </td>
+		<td> Office Order No. 162 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/162_04.09.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">669 KB</font></br></td>
+		</tr>
+	
+	
+		<tr>
+		<td> 03-09-2024  </td>
+		<td> Office Order No. 161 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/161_03.09.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">1.1 MB</font></br></td>
+		</tr>
+	
+	
+		<tr>
+		<td> 29-08-2024  </td>
+		<td> Office Order No. 160 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/160_29.08.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">497 KB</font></br></td>
+		</tr>
+	
+	
+		<tr>
+		<td> 29-08-2024  </td>
+		<td> Office Order No. 159 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/159_29.08.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">541 KB</font></br></td>
+		</tr>
+		
+		
+		<tr>
+		<td> 27-08-2024  </td>
+		<td> Office Order No. 158 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/158_27.08.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">747 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 26-08-2024  </td>
+		<td> Office Order No. 157 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/157_26.08.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">706 KB</font></br></td>
+		</tr>
+	
+		
+		<tr>
+		<td> 19-08-2024  </td>
+		<td> Office Order No. 155 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/155_19.08.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">463 KB</font></br></td>
+		</tr>
+		
+		
+		<tr>
+		<td> 14-08-2024  </td>
+		<td> Office Order No. 154 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/154_14.08.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">509 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 14-08-2024  </td>
+		<td> Office Order No. 153 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/153_14.08.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">472 KB</font></br></td>
+		</tr>
+		
+		
+		<tr>
+		<td> 14-08-2024  </td>
+		<td> Office Order No. 152 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/152_14.08.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">1.36 MB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 13-08-2024  </td>
+		<td> Office Order No. 150 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/150_13.08.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">486 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 09-08-2024  </td>
+		<td> Office Order No. 149 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/149_09.08.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">268 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 06-08-2024  </td>
+		<td> Office Order No. 147 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/147_06.08.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">871 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 06-08-2024  </td>
+		<td> Office Order No. 146 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/146_06.08.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">571 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 05-08-2024  </td>
+		<td> Office Order No. 144 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/144_05.08.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">474 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 01-08-2024  </td>
+		<td> Office Order No. 142 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/142_01.08.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">457 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 31-07-2024  </td>
+		<td> Office Order No. 136 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/136_31.07.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">455 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 31-07-2024  </td>
+		<td> Office Order No. 135 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/135_31.07.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">772 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 26-07-2024  </td>
+		<td> Office Order No. 129 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/129_26.07.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">787 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 26-07-2024  </td>
+		<td> Office Order No. 128 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/128_26.07.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">487 KB</font></br></td>
+		</tr>
+		
+		
+		<tr>
+		<td> 09-07-2024  </td>
+		<td> Office Order No. 121 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/121_09.07.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">825 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 08-07-2024  </td>
+		<td> Office Order No. 120 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/120_08.07.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">657 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 08-07-2024  </td>
+		<td> Office Order No. 119 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/119_08.07.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">708 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 05-07-2024  </td>
+		<td> Office Order No. 117 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/117_05.07.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">484 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 05-07-2024  </td>
+		<td> Office Order No. 116 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/116_05.07.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">326 KB</font></br></td>
+		</tr>
+	
+		
+		
+		<tr>
+		<td> 28-06-2024  </td>
+		<td> Office Order No. 113 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/113_28.06.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">503 KB</font></br></td>
+		</tr>
+	
+		
+		<tr>
+		<td> 28-06-2024  </td>
+		<td> Office Order No. 112 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/112_28.06.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">327 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 28-06-2024  </td>
+		<td> Office Order No. 111 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/111_28.06.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">400 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 28-06-2024  </td>
+		<td> Office Order No. 109 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/109_28.06.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">107 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 28-06-2024  </td>
+		<td> Office Order No. 108 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/108_28.06.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">107 KB</font></br></td>
+		</tr>
+		
+		
+		<tr>
+		<td> 27-06-2024  </td>
+		<td> Office Order No. 107 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/107_27.06.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">624 KB</font></br></td>
+		</tr>
+	
+	
+		<tr>
+		<td> 27-06-2024  </td>
+		<td> Office Order No. 106 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/106_27.06.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">3.32 MB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 25-06-2024  </td>
+		<td> Office Order No. 105 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/105_25.06.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">544 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 24-06-2024  </td>
+		<td> Office Order No. 103 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/103_24.06.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">1201 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 24-06-2024  </td>
+		<td> Office Order No. 102 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/102_24.06.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">590 KB</font></br></td>
+		</tr>
+	
+	
+		<tr>
+		<td> 22-06-2024  </td>
+		<td> Office Order No. 101 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/101_22.06.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">315 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 22-06-2024  </td>
+		<td> Office Order No. 100 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/100_22.06.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">470 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 22-06-2024  </td>
+		<td> Office Order No. 99 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/99_22.06.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">281 KB</font></br></td>
+		</tr>
+		
+		
+		<tr>
+		<td> 14-06-2024  </td>
+		<td> Office Order No. 98 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/98_14.06.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">770 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 05-06-2024  </td>
+		<td> Office Order No. 95 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/95_05.06.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">521 KB</font></br></td>
+		</tr>
+		
+	
+	
+		<tr>
+		<td> 03-06-2024  </td>
+		<td> Office Order No. 94 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/94_03.06.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">761 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 03-06-2024  </td>
+		<td> Office Order No. 93 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/93_03.06.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">4.34 MB</font></br></td>
+		</tr>
+	
+	
+		<tr>
+		<td> 29-05-2024  </td>
+		<td> Office Order No. 92 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/92_29.05.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">499 KB</font></br></td>
+		</tr>
+	
+	
+		<tr>
+		<td> 14-05-2024  </td>
+		<td> Office Order No. 89 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/89_14.05.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">345 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 08-05-2024  </td>
+		<td> Office Order No. 79 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/79_08.05.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">438 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 06-05-2024  </td>
+		<td> Office Order No. 77 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/77_06.05.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">639 KB</font></br></td>
+		</tr>
+	
+		<tr>
+		<td> 06-05-2024  </td>
+		<td> Office Order No. 76 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/76_06.05.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">789 KB</font></br></td>
+		</tr>
+	
+	
+		<tr>
+		<td> 23-04-2024  </td>
+		<td> Office Order No. 68 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/68_26.04.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">739 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 23-04-2024  </td>
+		<td> Office Order No. 67 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/67_26.04.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">734 KB</font></br></td>
+		</tr>
+		
+	
+		<tr>
+		<td> 23-04-2024  </td>
+		<td> Office Order No. 65 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/65_23.04.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">759 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 23-04-2024  </td>
+		<td> Office Order No. 64 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/64_23.04.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">278 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 22-04-2024  </td>
+		<td> Office Order No. 63 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/63_22.04.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">347 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 17-04-2024  </td>
+		<td> Office Notice of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/Notice_17.04.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">302 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 17-04-2024  </td>
+		<td> Office Order No. 62 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/62_17.04.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">286 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 17-04-2024  </td>
+		<td> Office Order No. 61 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/61_17.04.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">260 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 09-04-2024  </td>
+		<td> Office Order No. 60 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/60_09.04.24.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">1152 KB</font></br></td>
+		</tr>
+		
+	
+	    <tr>
+		<td> 29-02-2024  </td>
+		<td> Office Order No. 39 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/39_2024.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">312 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 13-02-2024  </td>
+		<td> Office Order No. 27 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/31_2024.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">384 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 08-02-2024  </td>
+		<td> Office Order No. 27 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/27_2024.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">328 KB</font></br></td>
+		</tr>
+		
+		
+		<tr>
+		<td> 30-01-2024  </td>
+		<td> Office Order No. 18 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/18_2024.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">324 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 29-01-2024  </td>
+		<td> Office Order No. 17 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/17_2024.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">408 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 16-01-2024  </td>
+		<td> Office Order No. 10 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/10_2024.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">195 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 16-01-2024  </td>
+		<td> Office Order No. 02 of 2024</td>
+		<td><a href="https://cmpfo.gov.in/office_order/02_2024.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">302 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 30-12-2023  </td>
+		<td> Office Order No. 131 of 2023</td>
+		<td><a href="https://cmpfo.gov.in/office_order/131_2023.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">403 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 30-12-2023  </td>
+		<td> Office Order No. 130 of 2023</td>
+		<td><a href="https://cmpfo.gov.in/office_order/130_2023.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">600 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 30-12-2023  </td>
+		<td> Office Order No. 129 of 2023</td>
+		<td><a href="https://cmpfo.gov.in/office_order/129_2023.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">335 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 30-12-2023  </td>
+		<td> Office Order No. 128 of 2023</td>
+		<td><a href="https://cmpfo.gov.in/office_order/128_2023.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">540 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 30-12-2023  </td>
+		<td> Office Order No. 127 of 2023</td>
+		<td><a href="https://cmpfo.gov.in/office_order/127_2023.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">564 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 30-12-2023  </td>
+		<td> Office Order No. 126 of 2023</td>
+		<td><a href="https://cmpfo.gov.in/office_order/126_2023.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">452 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 30-12-2023  </td>
+		<td> Office Order No. 125 of 2023</td>
+		<td><a href="https://cmpfo.gov.in/office_order/125_2023.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">542 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 30-12-2023  </td>
+		<td> Office Order No. 124 of 2023</td>
+		<td><a href="https://cmpfo.gov.in/office_order/124_2023.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">436 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 30-12-2023  </td>
+		<td> Office Order No. 123 of 2023</td>
+		<td><a href="https://cmpfo.gov.in/office_order/123_2023.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">446 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 30-12-2023  </td>
+		<td> Office Order No. 122 of 2023</td>
+		<td><a href="https://cmpfo.gov.in/office_order/122_2023.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">469 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 30-12-2023  </td>
+		<td> Office Order No. 121 of 2023</td>
+		<td><a href="https://cmpfo.gov.in/office_order/121_2023.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">444 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 30-12-2023  </td>
+		<td> Office Order No. 120 of 2023</td>
+		<td><a href="https://cmpfo.gov.in/office_order/120_2023.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">689 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 30-12-2023  </td>
+		<td> Office Order No. 119 of 2023</td>
+		<td><a href="https://cmpfo.gov.in/office_order/119_2023.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">537 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 30-12-2023  </td>
+		<td> Office Order No. 118 of 2023</td>
+		<td><a href="https://cmpfo.gov.in/office_order/118_2023.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">557 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 30-12-2023  </td>
+		<td> Office Order No. 117 of 2023</td>
+		<td><a href="https://cmpfo.gov.in/office_order/117_2023.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">728 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 30-12-2023  </td>
+		<td> Office Order No. 116 of 2023</td>
+		<td><a href="https://cmpfo.gov.in/office_order/116_2023.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">855 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 26-12-2023  </td>
+		<td> Office Order No. 113 of 2023</td>
+		<td><a href="https://cmpfo.gov.in/office_order/113_2023.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">409 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 19-12-2023  </td>
+		<td> Office Order No. 111 of 2023</td>
+		<td><a href="https://cmpfo.gov.in/office_order/111_2023.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">337 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 22-11-2023  </td>
+		<td> Office Order No. 107 of 2023</td>
+		<td><a href="https://cmpfo.gov.in/office_order/107_2023.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">499 KB</font></br></td>
+		</tr>
+		
+		
+		<tr>
+		<td> 21-08-2023  </td>
+		<td> Office Order No. 80 of 2023</td>
+		<td><a href="https://cmpfo.gov.in/office_order/80_2023.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">259 KB</font></br></td>
+		</tr>
+		
+		<tr>
+		<td> 30-03-2023  </td>
+		<td> Procedural Office Order No. 04 of 2023</td>
+		<td><a href="https://cmpfo.gov.in/office_order/04_2023.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">508 KB</font></br></td>
+		</tr>
+	
+	    <tr>
+		<td> 23-12-2022  </td>
+		<td> Office Order No. 90 of 2022</td>
+		<td><a href="https://cmpfo.gov.in/office_order/90_2022.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">692 KB</font></br></td>
+		</tr>
+	   
+	   <tr>
+		<td> 22-12-2022  </td>
+		<td> Procedural Office Order No. 03 of 2022</td>
+		<td><a href="https://cmpfo.gov.in/office_order/03_2022.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o" style="font-size:16px;color:red"></i></a><br><font color="black">532 KB</font></br></td>
+		
+	   </tr>
+
+	 
+	
+	
+	</table>
+
+	
+            </div>  
+                  
+         </section>      
+               
+            
+         
+         
+        
+         
+     </section>
+      <!--/.body-wrapper-->
+     <div id="footer"></div>
+      <!--/.footer-wrapper-->
+      
+      
+      
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      <script src="https://cmpfo.gov.in/theme/js/ma5gallery.js"></script>
+      
+      <script src="https://cmpfo.gov.in/theme/js/easyResponsiveTabs.js"></script>
+      
+      
+      
+   
+
+
+
+
+
+</body>
+</html>
