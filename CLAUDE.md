@@ -14,8 +14,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   EPFO and ESIC refuse US/EU IPs (check-host.net, 2026-11-15). CMPFO answers them.
 - ESIC regional/sub-regional office subsites (`<office>.esic.gov.in`) are added as ESIC sections `office-<code>-<list>`
   (defaulters, circulars, tenders, recruitment). Only 6 confirmed offices are seeded; the full RO/SRO list is in `DISCOVERY-scopes.md`.
-- Not yet done: OCR of the stored documents; structured parsers over the `row` records; the Internet Archive recovery task
-  (~15 GB of EPFO/ESIC documents that left the live web; plan in `DISCOVERY-scopes.md`).
+- Second task, `recover` (`recover.py`, project `epfo-pf-archive`, target `web.archive.org`): fetches the 22,805 documents
+  that left the live web (old EPFO site, dead `esic.nic.in`) from the Internet Archive. The list is `data/wayback_lost.csv.gz`
+  (from the CDX inventory); one queue item = up to 100 rows of one org and category. Common Crawl captures stop at 5 MiB:
+  the task detects truncation and tries up to 3 other captures; `truncated: true` marks a file that stays partial.
+- Not yet done: OCR of the stored documents; structured parsers over the `row` records.
 
 ### Commands
 
@@ -27,6 +30,8 @@ python -m pytest tests -q                                          # all tests (
 python -m pytest tests/test_pages.py::test_epfo_cbt_agenda_and_minutes   # one test
 python harvest.py --local cmpfo tenders --max-pages 2 --max-docs 2 # one section, no hub; records to stdout; nothing saved
 python harvest.py --local esic tenders-archive --pages 1-1 --max-docs 2   # one page range of a paged section
+python recover.py --local --rows 0-1                               # two rows of the Internet Archive list, no hub
+scrape-check --items 2 --project epfo-pf-archive --env RECOVER_MAX_ROWS=1 --no-rerun   # as CI (no rerun: stored ranges make no requests)
 scrape-check --items 2 --project epfo-pf-cmpfo --env HARVEST_MAX_PAGES=2 --env HARVEST_MAX_DOCS=2   # same as CI
 myproxy run scrape-check --items 2 --project epfo-pf-esic --env HARVEST_MAX_PAGES=2 --env HARVEST_MAX_DOCS=2
 gh workflow run setup                        # apply family.py to the real hub (GitHub OIDC only; not from the box)
@@ -54,6 +59,9 @@ gh workflow run setup                        # apply family.py to the real hub (
 - Links in the header, menus and footer (`chrome`) are not documents of a section, except where the section has `"chrome": True`.
   Site-specific menu areas go in the source's `chrome_css`.
 - robots.txt follows RFC 9309: a 4xx answer allows all, a 5xx answer or no answer disallows the host for the run.
+- `recover.py` reuses `harvest.Fetcher` and `harvest.Manifest`; its manifests are per range (`state/recover/<a>-<b>.json.gz`)
+  and it writes `doc:<id>` (same id rule as `harvest`) and `range:<a>-<b>` records. Rebuild the data file from
+  `ws_molendu.epfo.wayback_docs where lost_from_live` (see `DISCOVERY-scopes.md`).
 
 ## Family reference (shared by all s1d-labs families)
 

@@ -7,9 +7,16 @@ This family of the s1d-labs scrape pool collects public records of three Indian 
 | `epfo-pf-epfo` | Employees' Provident Fund Organisation (EPFO) | www.epfo.gov.in | 17 | 17 | Indian proxy (`proxy="IN"`) |
 | `epfo-pf-esic` | Employees' State Insurance Corporation (ESIC) | esic.gov.in | 18 | 113 | Indian proxy (`proxy="IN"`) |
 | `epfo-pf-cmpfo` | Coal Mines Provident Fund Organisation (CMPFO) | cmpfo.gov.in | 12 | 12 | direct |
+| `epfo-pf-archive` | EPFO and ESIC documents gone from the live web | web.archive.org | - | 241 | direct |
 
 The scraper does not collect the Pension Fund Regulatory and Development Authority (PFRDA, www.pfrda.org.in). The robots.txt file of
 that site disallows all crawlers except Googlebot (checked on 2026-11-15).
+
+## Documents that left the live web
+
+The old EPFO website and the old ESIC domain `esic.nic.in` no longer serve their documents. The Internet Archive kept
+22,805 of them (about 19 GB): circulars, tenders, annual reports, annual accounts, Board meeting files and default lists.
+The `recover` task fetches them from the archive and stores them like the live documents, with `source: "wayback"`.
 
 ## What the scraper collects
 
